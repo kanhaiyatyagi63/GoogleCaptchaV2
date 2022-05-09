@@ -1,0 +1,21 @@
+﻿@model LoginModel
+@{
+    ViewData["Title"] = "Google Captcha";
+}
+
+
+<div class="container">
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <form id="form_login" asp-controller="authenticate" asp-antiforgery="true" asp-action="Login" method="post">
+        <partial name="_LoginPartial" model="Model"></partial>
+    </form>
+</div>
+
+@section scripts{
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<partial name="_ValidationScriptsPartial" />
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
